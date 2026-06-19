@@ -8,14 +8,13 @@ function Header() {
         <Link href="/">STUDIO.SHOP</Link>
 
         <nav>
-          <Link href="/Category">Category</Link>
+          <Link href="/">Catalogue</Link>
 
-          <Link href="/Cart">
-            <ShoppingBag strokeWidth={1} />
+          <Link href="/cart">
+            <ShoppingBag />
             Panier
           </Link>
         </nav>
-        
       </div>
     </header>
   );
