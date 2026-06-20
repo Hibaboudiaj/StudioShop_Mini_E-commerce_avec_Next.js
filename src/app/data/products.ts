@@ -9,7 +9,8 @@ export const products: Product[] = [
     description:
       "The Apple MacBook Air M3 is a super-portable laptop featuring a powerful 8-core CPU and up to 10-core GPU",
     category: "Laptop",
-    image: "/macbook-air-m3.jpg",
+    image:
+      "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
@@ -19,7 +20,8 @@ export const products: Product[] = [
     description:
       "A premium tactile mechanical keyboard with RGB backlighting, hot-swappable switches, and an aluminum frame for a satisfying typing experience.",
     category: "Accessories",
-    image: "/mechanical-keyboard.jpg",
+    image:
+      "https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 3,
@@ -29,7 +31,8 @@ export const products: Product[] = [
     description:
       "The Smart Watch Ultra features an always-on AMOLED display, GPS tracking, heart rate monitoring, and up to 72-hour battery life for active lifestyles.",
     category: "Wearable",
-    image: "/smart-watch-ultra.jpg",
+    image:
+      "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 4,
@@ -39,7 +42,8 @@ export const products: Product[] = [
     description:
       "The iPad Pro M4 delivers desktop-class performance in an ultra-thin design, featuring a stunning Ultra Retina XDR display and Apple Pencil Pro support.",
     category: "Tablet",
-    image: "/ipad-pro-m4.jpg",
+    image:
+      "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 5,
@@ -49,7 +53,8 @@ export const products: Product[] = [
     description:
       "Premium over-ear headphones with active noise cancellation, 30-hour battery life, and Hi-Res Audio support for an immersive listening experience.",
     category: "Audio",
-    image: "/wireless-headphones.jpg",
+    image:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 6,
@@ -59,6 +64,7 @@ export const products: Product[] = [
     description:
       "A lightweight 15.6-inch 4K USB-C portable monitor with HDR support, perfect for on-the-go productivity and dual-screen setups.",
     category: "Monitor",
-    image: "/4k-portable-monitor.jpg",
+    image:
+      "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=800&q=80",
   },
 ];
