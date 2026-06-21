@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { Product } from "../types/Product";
+import AddToCart from "./AddToCart";
+import AddToCartBtn from "./AddToCartBtn";
 interface productProps {
   product: Product;
 }
@@ -11,12 +13,13 @@ export default function ProductCard({ product }: productProps) {
       <div>
         <div className="relative mb-4 aspect-square overflow-hidden rounded-sm bg-gradient-to-br from-zinc-900 to-black">
           <Link href="" className="block h-full w-full">
-            <div className="relative h-full w-full overflow-hidden rounded-xl bg-zinc-900">
+            <div className="relative mb-4 aspect-square overflow-hidden">
               <Image
-                src={product.image} 
+                src={product.image}
                 alt="Picture of the author"
                 width={500}
                 height={500}
+                className="h-full w-full object-cover"
               />
             </div>
           </Link>
@@ -45,15 +48,10 @@ export default function ProductCard({ product }: productProps) {
         </span>
 
         <div className="flex items-center space-x-2">
-          <button
-            title="Add To Cart"
-            className="cursor-pointer rounded-sm border border-white/10 p-2 text-white/60 transition-all hover:border-white hover:bg-white/5 hover:text-white"
-          >
-            <ShoppingCart className="h-3.5 w-3.5" />
-          </button>
+          <AddToCartBtn product={product} />
 
           <Link
-            href="/products/macbook-air"
+            href={`/products/${product.slug}`}
             className="rounded-sm border border-white/20 px-3 py-2 text-center text-[10px] font-extrabold uppercase tracking-wider transition-all hover:border-white hover:bg-white hover:text-black"
           >
             Détails

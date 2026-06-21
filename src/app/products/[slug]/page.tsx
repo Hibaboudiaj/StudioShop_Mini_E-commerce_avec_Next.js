@@ -1,17 +1,29 @@
 import Image from "next/image";
 import { ShoppingCart, Truck, ShieldCheck, RefreshCw } from "lucide-react";
+import { products } from "../../data/products";
+import { use } from "react";
+import AddToCart from "../../components/AddToCart";
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+export default function ProductDetails({ params }: PageProps) {
+  const { slug } = use(params);
 
-export default function ProductDetails() {
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product) {
+    return <div className="text-white">Product not found</div>;
+  }
   return (
     <div className="relative grid grid-cols-1 gap-12 overflow-hidden rounded-sm border border-white/5 bg-[#0A0A0A] p-6 md:p-10 lg:grid-cols-12">
-
       <div className="space-y-4 lg:col-span-6">
         <div className="rounded-sm border border-white/5 bg-black/45 p-2">
           <div className="relative h-[500px] overflow-hidden rounded-xl bg-zinc-900">
             <Image
-              src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=600&h=600"
-              alt="MacBook Air M3"
-              fill
+              src={product.image}
+              alt={product.name}
+              width={500}
+              height={500}
               className="rounded-sm object-cover"
             />
           </div>
@@ -21,16 +33,16 @@ export default function ProductDetails() {
       <div className="flex flex-col justify-between space-y-8 lg:col-span-6">
         <div>
           <span className="rounded-sm border border-white/10 bg-white/5 px-3 py-1 text-[9px] font-mono uppercase tracking-widest text-[#F0F0F0]">
-            Ordinateurs
+            {product.category}
           </span>
 
           <h1 className="mt-4 text-3xl font-light uppercase tracking-tight text-white md:text-4xl">
-            MacBook Air M3
+            {product.name}
           </h1>
 
           <div className="mt-4 flex items-baseline space-x-2">
             <span className="font-mono text-3xl tracking-tighter text-white">
-              12 990
+              {product.price}
             </span>
             <span className="font-mono text-[11px] font-black tracking-widest text-white/40">
               DH
@@ -45,10 +57,7 @@ export default function ProductDetails() {
             </h3>
 
             <p className="text-sm leading-relaxed text-white/70">
-              Le MacBook Air est super fin, ultra-léger et se glisse facilement
-              dans sa sacoche. Doté de la puce M3 de pointe, il offre des
-              performances fulgurantes et jusqu'à 18 heures d'autonomie pour
-              tout faire, partout.
+              {product.description}
             </p>
           </div>
         </div>
@@ -102,14 +111,15 @@ export default function ProductDetails() {
                 </button>
               </div>
             </div>
-
+            {/* 
             <button className="flex flex-1 cursor-pointer items-center justify-center space-x-2 overflow-hidden rounded-sm bg-white px-6 py-4 text-xs font-black uppercase tracking-[0.2em] text-black transition-colors hover:bg-zinc-200">
               <ShoppingCart className="h-3.5 w-3.5" />
               <span>Ajouter au Panier</span>
-            </button>
+            </button> */}
+            <AddToCart product={product} />
           </div>
         </div>
       </div>
-    </div>    
+    </div>
   );
 }
